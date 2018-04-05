@@ -16,7 +16,7 @@ function post()
     $commentDAO = new CommentDAO();
 
     $post = $postDAO->getPost($_GET['id']);
-    $comments = $commentDAO->getComments($_GET['id']);
+    $comment = $commentDAO->getComments($_GET['id']);
 
     require('view/chapitre.php');
 }

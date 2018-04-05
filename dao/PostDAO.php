@@ -2,7 +2,7 @@
 require_once('dao/BaseDAO.php');
 require_once('model/Post.php');
 
-class PostDAO extends Manager
+class PostDAO extends BaseDAO
 {
     public function getPosts(){
         $db = $this->dbConnect();

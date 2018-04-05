@@ -1,5 +1,5 @@
 <?php
-class Manager
+class BaseDAO
 {
     protected function dbConnect()
     {

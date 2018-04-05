@@ -12,12 +12,16 @@
         <p> <?php echo htmlspecialchars($post->getContent()); ?> </p>
     </div>
 
-        <?php
-        while ($comment = $comments->fetch())
+    <?php
+
+        foreach ($comment as $comment)
         {
         ?>
-            <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_comment'] ?></p>
-            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+        <div class="posts">
+            <h3> <?php echo htmlspecialchars($comment->getAuthor()); ?> </h3>
+            <p> <?php echo htmlspecialchars($comment->getComment()); ?> </p>
+            <p>publié le: <?php echo htmlspecialchars($comment->getDateComment()); ?></p>
+        </div>
         <?php
         }
     ?>
