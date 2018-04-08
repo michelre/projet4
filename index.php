@@ -21,11 +21,11 @@ try { // On essaie de faire des choses
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 }
                 else {
-                    echo 'Erreur : tous les champs ne sont pas remplis !';
+                    throw new Exception('tous les champs ne sont pas remplis !');
                 }
             }
             else {
-                echo 'Erreur : aucun identifiant de billet envoyé';
+                throw new Exception('Erreur : aucun identifiant de billet envoyé');
             }
         }
     }

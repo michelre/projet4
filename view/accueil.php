@@ -4,23 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css'/>
     <title>Projet 4</title>
 </head>
 <body>
-    <h1>Mon nouveau roman</h1>
-    <nav>
-        <ul>
-            <li><a href="index.php?action=listPosts">accueil</a></li>
-            <li> chapitres
-                <ul>
-                    <li><a href="index.php?action=post&amp;id=1">chapitres 1</a></li>
-                    <li><a href="index.php?action=post&amp;id=2">chapitres 2</a></li>
-                    <li><a href="index.php?action=post&amp;id=3">chapitres 3</a></li>
-                </ul>           
-            </li>
-            <li><a href="">se connecter</a></li>
-        </ul>
-    </nav>
+
+    <?php include('templates/nav.php'); ?>
 
     <?php
     foreach ($posts as $post)
@@ -34,6 +24,8 @@
     <?php
     }
     ?>
-    
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.js'></script> 
 </body>
 </html>
