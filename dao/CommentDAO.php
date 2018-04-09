@@ -7,11 +7,11 @@ class CommentDAO extends BaseDAO
     public function getComments($postId)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT * FROM comments WHERE post_id = ?');
+        $req = $db->prepare('SELECT *, DATE_FORMAT(date_comment, \'%d/%m/%y\') AS comment_date FROM comments WHERE post_id = ?');
         $req->execute(array($postId));
         $comments = [];
         while($comment = $req->fetch()){
-            array_push($comments, new Comment($comment['id'], $comment['post_id'], $comment['author'], $comment['comment'], $comment['date_comment']));
+            array_push($comments, new Comment($comment['id'], $comment['post_id'], $comment['author'], $comment['comment'], $comment['comment_date']));
         }
         
         return $comments;

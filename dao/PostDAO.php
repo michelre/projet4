@@ -6,10 +6,10 @@ class PostDAO extends BaseDAO
 {
     public function getPosts(){
         $db = $this->dbConnect();
-        $req = $db->query('SELECT * FROM posts');
+        $req = $db->query('SELECT *, DATE_FORMAT(date_created, \'%d/%m/%y\') as created_date FROM posts');
         $posts = [];
         while($post = $req->fetch()){
-            array_push($posts, new Post($post['id'], $post['title'], $post['content'], $post['date_created']));
+            array_push($posts, new Post($post['id'], $post['title'], $post['content'], $post['created_date']));
         }
         return $posts;
     }
@@ -21,6 +21,18 @@ class PostDAO extends BaseDAO
         $post = $req->fetch();
 
         return new Post($post['id'], $post['title'], $post['content'], $post['date_created']);
+    }
+
+    public function createPost() {
+
+    }
+
+    public function updatePost(){
+
+    }
+
+    public function deletePost(){
+        
     }
 }
 
