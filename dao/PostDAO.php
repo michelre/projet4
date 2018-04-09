@@ -23,8 +23,12 @@ class PostDAO extends BaseDAO
         return new Post($post['id'], $post['title'], $post['content'], $post['date_created']);
     }
 
-    public function createPost() {
+    public function createPost($titlePost, $contentPost){
+        $db = $this->dbConnect();
+        $req = $db->prepare('INSERT INTO posts(title, content, date_created) VALUES(?, ?, NOW())');
+        $post = $req->execute(array($titlePost, $contentPost));
 
+        return $post;
     }
 
     public function updatePost(){

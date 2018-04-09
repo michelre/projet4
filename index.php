@@ -28,6 +28,14 @@ try { // On essaie de faire des choses
                 throw new Exception('Erreur : aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'addPost'){
+            if (!empty($_POST['titlePost']) && !empty($_POST['contentPost'])){
+            addPost($_POST['titlePost'], $_POST['contentPost']);
+            }
+            else{
+                throw new Exception('tous les champs ne sont pas remplis');
+            }
+        }
     }
 
     else {

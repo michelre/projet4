@@ -21,6 +21,19 @@ function post()
     require('view/chapitre.php');
 }
 
+function addPost($titlePost, $contentPost)
+{
+    $postDAO = new PostDAO();
+    $post = $postDAO->createPost($titlePost, $contentPost);
+
+    if ($post === false){
+        throw new Exception('Impossible de créer l\'article !');
+    }
+    else{
+        header('Location: index.php');
+    }
+}
+
 function addComment($postId, $author, $comment)
 {
     $commentDAO = new CommentDAO();
