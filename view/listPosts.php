@@ -6,29 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css'/>
-    <title>Ajouter un chapitre</title>
+    <title>Gestion chapitre</title>
 </head>
 <body>
 
     <?php include('templates/nav.php'); ?>
 
-    <div class="addPost">
-        <p>ajouter un chapitre:</p>
-        <form action="../index.php?action=addPost" method="post">
-            <div>
-                <label for="titlePost">Titre du chapitre</label><br />
-                <input type="text" id="titlePost" name="titlePost" required/>
-            </div>
-            <div>
-                <label for="contentPost">Contenu du chapitre</label><br />
-                <textarea id="contentPost" name="contentPost" required></textarea>
-            </div>
-            <div>
-                <input type="submit" value="publier"/>
-            </div>
-        </form>
+    <h2>chapitre à modifier :</h2>
+
+    <?php
+    foreach ($posts as $post)
+    {
+    ?>
+    <div class="posts">
+        <a href="index.php?action=updatePost&amp;id=<?php echo $post->getId(); ?>"><?php echo htmlspecialchars($post->getTitle()); ?></a>
     </div>
-    
+    <?php
+    }
+    ?>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.js'></script> 
