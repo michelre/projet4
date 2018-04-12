@@ -82,3 +82,11 @@ function updateConfirmation($titlePost, $contentPost, $postId)
 
     header('Location: index.php?action=post&id=' . $postId);
 }
+
+function deletePost($postId)
+{
+   $postDAO = new PostDAO();
+   $post = $postDAO->deletePost($postId);
+
+   require('view/accueil.php');
+}
