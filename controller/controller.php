@@ -88,5 +88,5 @@ function deletePost($postId)
    $postDAO = new PostDAO();
    $post = $postDAO->deletePost($postId);
 
-   require('view/accueil.php');
+   header('Location: index.php');
 }
