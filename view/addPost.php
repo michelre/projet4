@@ -21,14 +21,14 @@
 
     <div class="addPost">
         <p>ajouter un chapitre:</p>
-        <form action="../index.php?action=addPost" method="post">
+        <form action="index.php?action=addPost" method="post">
             <div>
                 <label for="titlePost">Titre du chapitre</label><br />
-                <input type="text" id="titlePost" name="titlePost" required/>
+                <input type="text" id="titlePost" name="titlePost"/>
             </div>
             <div>
                 <label for="contentPost">Contenu du chapitre</label><br />
-                <textarea id="contentPost" name="contentPost" required></textarea>
+                <textarea id="contentPost" name="contentPost"></textarea>
             </div>
             <div>
                 <input type="submit" value="publier"/>

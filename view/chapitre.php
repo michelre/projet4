@@ -14,7 +14,7 @@
 
     <div class="post">
         <h2> <?php echo htmlspecialchars($post->getTitle()); ?> </h2>
-        <p> <?php echo htmlspecialchars($post->getContent()); ?> </p>
+        <p> <?php echo $post->getContent(); ?> </p>
     </div>
 
     <div class="addComment">
