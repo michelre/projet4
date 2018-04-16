@@ -56,7 +56,7 @@ function admin()
 
 function newPost()
 {
-    require('view/addpost.php');
+    require('view/addPost.php');
 }
 
 function updateList()
