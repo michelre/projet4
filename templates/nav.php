@@ -17,10 +17,10 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 
                 <?php
-                    foreach ($posts as $post)
+                    foreach ($posts as $postNav)
                     {
                 ?>
-                    <a class="dropdown-item" href="index.php?action=post&amp;id=<?php echo $post->getId()?>"><?php echo $post->getTitle()?></a>
+                    <a class="dropdown-item" href="index.php?action=post&amp;id=<?php echo $postNav->getId()?>"><?php echo $postNav->getTitle()?></a>
                     
 
                 <?php

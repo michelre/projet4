@@ -84,6 +84,8 @@ function postUpdate()
 {
     $postDAO = new PostDAO();
     $post = $postDAO->getPost($_GET['id']);
+    $posts = $postDAO->getPosts();
+    
 
     require('view/updatePost.php');
 }
@@ -106,9 +108,11 @@ function deletePost($postId)
 
 function reportedList()
 {
+    $postDAO = new PostDAO();
     $commentDAO = new CommentDAO();
     $comment = $commentDAO->commentList();
-
+    $posts = $postDAO->getPosts();
+    
     require('view/commentaires.php');
 }
 
