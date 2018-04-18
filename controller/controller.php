@@ -119,3 +119,11 @@ function deleteComments($commentId)
 
     header('Location: index.php');
 }
+
+function acceptComments($commentId)
+{
+    $commentDAO = new CommentDAO();
+    $comment = $commentDAO->acceptComment($commentId);
+    
+    header('location: index.php');
+}

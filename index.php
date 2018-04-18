@@ -85,6 +85,12 @@ try { // On essaie de faire des choses
                 deleteComments($_GET['id']);
             }
         }
+
+        elseif ($_GET['action'] == 'acceptComment'){
+            if (isset($_GET['id']) && $_GET['id'] > 0){
+                acceptComments($_GET['id']);
+            }
+        }
     }
 
     else {

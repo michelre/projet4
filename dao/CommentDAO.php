@@ -57,4 +57,13 @@ class CommentDAO extends BaseDAO
         return $comment;
     }
 
+    public function acceptComment($commentId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE comments SET reported_comment = 0 WHERE id = ?');
+        $comment = $req->execute(array($commentId));
+
+        return $comment;
+    }
+
 }

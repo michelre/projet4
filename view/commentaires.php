@@ -26,6 +26,11 @@
                     <input type="submit" value="supprimer"/>
                 </div>
             </form>
+            <form action="index.php?action=acceptComment&amp;id=<?php echo $comment->getId();?>" method="post">
+                <div>
+                    <input type="submit" value="accepter"/>
+                </div>
+            </form>
         </div>
     <?php
         }
