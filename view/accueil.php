@@ -10,20 +10,42 @@
 </head>
 <body>
 
-    <?php include('templates/nav.php'); ?>
+    <?php include('templates/nav.php');?>
+    <?php include('templates/header.php');?>
 
-    <?php
-    foreach ($posts as $post)
-    {
-    ?>
-    <div class="posts">
-        <h2> <?php echo htmlspecialchars($post->getTitle()); ?> </h2>
+    <h1 class="text-center">Billet simple pour l'Alaska</h1>
 
-        <p> <?php echo htmlspecialchars($post->getDateCreated()); ?> </p>
+    <div class="d-md-flex">
+        <div class="présentation w-md-75 p-5">
+            <p>bienvenue à vous je suis Forteroche Jean écrivain depuis plus de 20 ans. A l'occasion de la sortie de mon nouveau roman,
+             je vous propose de le découvrir sur mon site internet sous la forme de chapitre qui sortiront successivement les uns après les autres.</p>
+        </div>
+        <div class="liste-article w-md-25 pt-5">
+            <table class="table table-striped table-bordered ">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">titre</th>
+                        <th scope="col">date de publication</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach ($posts as $post)
+                        {
+                    ?>
+                    <tr class="text-center">
+                        <td><?php echo htmlspecialchars($post->getTitle()); ?></td>
+                        <td><?php echo htmlspecialchars($post->getDateCreated()); ?></td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <?php
-    }
-    ?>
+
+
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.js'></script> 

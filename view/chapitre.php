@@ -10,7 +10,8 @@
 </head>
 <body>
 
-    <?php include('templates/nav.php'); ?>
+    <?php include('templates/nav.php');?>
+    <?php include('templates/header.php');?>
 
     <div class="post">
         <h2> <?php echo htmlspecialchars($post->getTitle()); ?> </h2>

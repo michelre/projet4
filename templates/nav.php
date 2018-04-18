@@ -1,4 +1,4 @@
-<nav class=" navbar navbar-dark navbar-expand-sm bg-dark py-sm-3">
+<nav class=" navbar navbar-dark navbar-expand-sm fixed-top bg-dark py-sm-3">
     <a class="navbar-brand" href="#">Jean Forteroche</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
