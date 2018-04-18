@@ -48,4 +48,13 @@ class CommentDAO extends BaseDAO
         return $comments;
     }
 
+    public function deleteComment($commentId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM comments WHERE id =?');  
+        $comment = $req->execute(array($commentId));
+  
+        return $comment;
+    }
+
 }

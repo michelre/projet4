@@ -21,6 +21,11 @@
             <h3> <?php echo htmlspecialchars($comment->getAuthor()); ?> </h3>
             <p> <?php echo htmlspecialchars($comment->getComment()); ?> </p>
             <p>publié le: <?php echo htmlspecialchars($comment->getDateComment()); ?></p>
+            <form action="index.php?action=deleteComment&amp;id=<?php echo $comment->getId();?>" method="post">
+                <div>
+                    <input type="submit" value="supprimer"/>
+                </div>
+            </form>
         </div>
     <?php
         }

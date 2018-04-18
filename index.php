@@ -79,6 +79,12 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'reportedCommentList'){
             reportedList();
         }
+
+        elseif ($_GET['action'] == 'deleteComment'){
+            if (isset($_GET['id']) && $_GET['id'] > 0){
+                deleteComments($_GET['id']);
+            }
+        }
     }
 
     else {

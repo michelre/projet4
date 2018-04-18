@@ -111,3 +111,11 @@ function reportedList()
 
     require('view/commentaires.php');
 }
+
+function deleteComments($commentId)
+{
+    $commentDAO = new CommentDAO();
+    $comment = $commentDAO->deleteComment($commentId);
+
+    header('Location: index.php');
+}
