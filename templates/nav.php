@@ -15,9 +15,17 @@
                 <i class="fa fa-file" aria-hidden="true"></i>Épisodes
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="index.php?action=post&amp;id=1">Premier chapitre</a>
-                <a class="dropdown-item" href="index.php?action=post&amp;id=2">Second chapitre</a>
-                <a class="dropdown-item" href="index.php?action=post&amp;id=3">Troisième chapitre</a>
+                
+                <?php
+                    foreach ($posts as $post)
+                    {
+                ?>
+                    <a class="dropdown-item" href="index.php?action=post&amp;id=<?php echo $post->getId()?>"><?php echo $post->getTitle()?></a>
+                    
+
+                <?php
+                    }
+                ?>
               </div>
             </li>
 
