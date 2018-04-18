@@ -5,7 +5,7 @@ class Comment
     private $postId;
     private $author;
     private $comment;
-    private $dateComment;   
+    private $dateComment; 
     
     public function __construct($id, $postId, $author, $comment, $dateComment)
     {

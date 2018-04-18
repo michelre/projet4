@@ -17,7 +17,8 @@ function post()
 
     $post = $postDAO->getPost($_GET['id']);
     $comment = $commentDAO->getComments($_GET['id']);
-
+    //$posts = $postDAO->getPosts();
+    
     require('view/chapitre.php');
 }
 
@@ -25,6 +26,7 @@ function addPost($titlePost, $contentPost)
 {
     $postDAO = new PostDAO();
     $post = $postDAO->createPost($titlePost, $contentPost);
+
 
     if ($post === false){
         throw new Exception('Impossible de créer l\'article !');
@@ -48,14 +50,25 @@ function addComment($postId, $author, $comment)
     }
 }
 
+function reportedComment($commentId)
+{
+    $commentDAO = new CommentDAO();
+    $comment = $commentDAO->statusComment($commentId);
+    header('location: index.php');
+}
+
 
 function admin()
 {
+    $postDAO = new PostDAO();
+    $posts = $postDAO->getPosts();
     require('view/admin.php');
 }
 
 function newPost()
 {
+    $postDAO = new PostDAO();
+    $posts = $postDAO->getPosts();
     require('view/addPost.php');
 }
 
@@ -89,4 +102,12 @@ function deletePost($postId)
    $post = $postDAO->deletePost($postId);
 
    header('Location: index.php');
+}
+
+function reportedList()
+{
+    $commentDAO = new CommentDAO();
+    $comment = $commentDAO->commentList();
+
+    require('view/commentaires.php');
 }

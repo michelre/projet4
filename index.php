@@ -28,6 +28,12 @@ try { // On essaie de faire des choses
                 throw new Exception('Erreur : aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'reportComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0){
+                reportedComment($_GET['id']);
+            }
+        }
+
         elseif ($_GET['action'] == 'addPost'){
             if (!empty($_POST['titlePost']) && !empty($_POST['contentPost'])){
             addPost($_POST['titlePost'], $_POST['contentPost']);
@@ -68,6 +74,10 @@ try { // On essaie de faire des choses
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deletePost($_GET['id']);
             }
+        }
+
+        elseif ($_GET['action'] == 'reportedCommentList'){
+            reportedList();
         }
     }
 

@@ -41,10 +41,15 @@
             foreach ($comment as $comment)
             {
             ?>
-            <div class="posts">
+            <div class="comments">
                 <h3> <?php echo htmlspecialchars($comment->getAuthor()); ?> </h3>
                 <p> <?php echo htmlspecialchars($comment->getComment()); ?> </p>
                 <p>publié le: <?php echo htmlspecialchars($comment->getDateComment()); ?></p>
+                <form action="index.php?action=reportComment&amp;id=<?php echo $comment->getId();?>" method="post">
+                    <div>
+                        <input type="submit" value="signaler"/>
+                    </div>
+                </form>
             </div>
             <?php
             }

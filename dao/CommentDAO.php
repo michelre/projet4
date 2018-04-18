@@ -26,4 +26,26 @@ class CommentDAO extends BaseDAO
         return $affectedLines;
     }
 
+    public function statusComment($commentId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE comments SET reported_comment = 1 WHERE id = ?');
+        $comment = $req->execute(array($commentId));
+
+        return $comment;
+    }
+
+    public function commentList()
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT *, DATE_FORMAT(date_comment, \'%d/%m/%y\') AS comment_date FROM comments WHERE reported_comment = 1');
+        $req->execute(array());
+        $comments = [];
+        while($comment = $req->fetch()){
+            array_push($comments, new Comment($comment['id'], $comment['post_id'], $comment['author'], $comment['comment'], $comment['comment_date']));
+        }
+        
+        return $comments;
+    }
+
 }
