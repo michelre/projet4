@@ -16,11 +16,11 @@
     <h1 class="text-center">Billet simple pour l'Alaska</h1>
 
     <div class="d-md-flex">
-        <div class="présentation w-md-75 p-5">
+        <div class="présentation p-5">
             <p>bienvenue à vous je suis Forteroche Jean écrivain depuis plus de 20 ans. A l'occasion de la sortie de mon nouveau roman,
              je vous propose de le découvrir sur mon site internet sous la forme de chapitre qui sortiront successivement les uns après les autres.</p>
         </div>
-        <div class="liste-article w-md-25 pt-5">
+        <div class="liste-article p-5 w-100">
             <table class="table table-striped table-bordered ">
                 <thead>
                     <tr class="text-center">
