@@ -13,14 +13,14 @@
     <?php include('templates/nav.php');?>
     <?php include('templates/header.php');?>
 
-    <div class="post">
-        <h2> <?php echo htmlspecialchars($post->getTitle()); ?> </h2>
+    <div class="post border border-dark m-3 p-4">
+        <h2 class="text-center"> <?php echo htmlspecialchars($post->getTitle()); ?> </h2>
         <p> <?php echo $post->getContent(); ?> </p>
     </div>
 
-    <div class="addComment">
-        <p>ajouter un commentaire:</p>
-        <form action="index.php?action=addComment&amp;id=<?php echo $post->getId(); ?>" method="post">
+    <div class="addComment m-3">
+        <h3 class="text-center m-4">Ajouter un commentaire</h3>
+        <form class="border border-dark p-4" action="index.php?action=addComment&amp;id=<?php echo $post->getId(); ?>" method="post">
             <div>
                 <label for="author">Auteur</label><br />
                 <input type="text" id="author" name="author" />
@@ -35,14 +35,14 @@
         </form>
     </div>
 
-    <div class="comment">
-        <p>Commentaires:</p>
+    <div class="comment m-3">
+        <h3 class="text-center m-4">Commentaires</h3>
         <?php
 
             foreach ($comment as $comment)
             {
             ?>
-            <div class="comments">
+            <div class="comments border  border-dark mb-4 p-4">
                 <h3> <?php echo htmlspecialchars($comment->getAuthor()); ?> </h3>
                 <p> <?php echo htmlspecialchars($comment->getComment()); ?> </p>
                 <p>publié le: <?php echo htmlspecialchars($comment->getDateComment()); ?></p>
