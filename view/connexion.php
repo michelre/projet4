@@ -13,12 +13,12 @@
 
     <?php include('../templates/nav.php'); ?>
 
-    <form class="form-signin">
+    <form action="index.php?action=connexion" method="post" class="form-signin">
         <h4 class="h3 mb-3 font-weight-normal text-center">Connectez vous :</h4>
-        <label for="inputEmail" class="sr-only">nom</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="nom..." required autofocus>
+        <label for="inputText" class="sr-only">nom</label>
+        <input type="text" id="pseudo" name="pseudo" class="form-control" placeholder="nom..." required >
         <label for="inputPassword" class="sr-only">Mot de passe</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+        <input type="password" id="password" name="password"class="form-control" placeholder="Mot de passe" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
     </form>
     

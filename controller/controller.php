@@ -1,6 +1,7 @@
 <?php
 require_once('dao/PostDAO.php');
 require_once('dao/CommentDAO.php');
+require_once('dao/UserDAO.php');
 
 function listPosts()
 {
@@ -57,6 +58,10 @@ function reportedComment($commentId)
     header('location: index.php');
 }
 
+function connexion($pseudo, $password)
+{
+    $userDAO = new UserDAO();
+}
 
 function admin()
 {

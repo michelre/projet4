@@ -42,6 +42,12 @@ try { // On essaie de faire des choses
                 throw new Exception('tous les champs ne sont pas remplis');
             }
         }
+        elseif ($_GET['action'] == 'connexion'){
+            if (!empty($_POST['pseudo']) && !empty($_POST['password'])){
+                connexion($_POST['pseudo'], $_POST['password']);
+            }
+        }
+
         elseif ($_GET['action'] == 'admin'){
             admin();
         }
