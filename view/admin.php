@@ -10,10 +10,11 @@
 </head>
 <body>
     <?php include('templates/nav.php'); ?>
+    <h3 class="text-center m-3">Administration</h3>
 
-    <div class="actionAdmin">
+    <div class="actionAdmin m-5 p-4 border border-dark">
         <a href="index.php?action=newPost">créer un nouveau chapitre</a>
-        <a href="index.php?action=updateList">modifier/supprimer un chapitre</a>
+        <a href="index.php?action=updateList" class="d-block">modifier/supprimer un chapitre</a>
         <a href="index.php?action=reportedCommentList">gestion des commentaires</a>
     </div>
     

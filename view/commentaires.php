@@ -11,26 +11,27 @@
 <body>
 
     <?php include('templates/nav.php'); ?>
+    <h3 class="text-center m-3">commentaires signalés</h3>
 
     <?php
 
         foreach ($comment as $comment)
         {
     ?>
-        <div class="comments">
+        <div class="comments m-5 p-4 border border-dark">
             <h3> <?php echo htmlspecialchars($comment->getAuthor()); ?> </h3>
             <p> <?php echo htmlspecialchars($comment->getComment()); ?> </p>
             <p>publié le: <?php echo htmlspecialchars($comment->getDateComment()); ?></p>
             <form action="index.php?action=deleteComment&amp;id=<?php echo $comment->getId();?>" method="post">
                 <div>
-                    <input type="submit" value="supprimer"/>
+                <div class="d-inline">
+                    <input class="btn btn-primary" type="submit" value="supprimer"/>
                 </div>
             </form>
-            <form action="index.php?action=acceptComment&amp;id=<?php echo $comment->getId();?>" method="post">
-                <div>
-                    <input type="submit" value="accepter"/>
-                </div>
+            <form action="index.php?action=acceptComment&amp;id=<?php echo $comment->getId();?>" method="post" class="d-inline">
+                <input class="btn btn-primary" type="submit" value="accepter"/>
             </form>
+            </div>
         </div>
     <?php
         }

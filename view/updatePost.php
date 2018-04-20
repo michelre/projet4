@@ -18,9 +18,10 @@
 <body>
 
     <?php include('templates/nav.php'); ?>
+    <h3 class="text-center m-3">modifications chapitre</h3>
 
-    <div class="updatePost">
-        <p>modification chapitre:</p>
+    <div class="updatePost m-5 p-5 border border-dark">
+
         <form action="index.php?action=updateConfirmation&amp;id=<?php echo $post->getId(); ?>" method="post">
             <div>
                 <label for="titlePost">Titre du chapitre</label><br />
@@ -31,12 +32,14 @@
                 <textarea id="contentPost" name="contentPost"><?php echo htmlspecialchars($post->getContent()); ?></textarea>
             </div>
             <div>
-                <input type="submit" value="modifier"/>
+                <div class="d-inline">
+                    <input class="btn btn-primary" type="submit" value="modifier"/>
+                </div>
+        </form>
+                <form action="index.php?action=delete&amp;id=<?php echo $post->getId(); ?>" method="post" class="delete d-inline">
+                    <input class="btn btn-primary" type="submit" value="supprimer"/>
+                </form>
             </div>
-        </form>
-        <form action="index.php?action=delete&amp;id=<?php echo $post->getId(); ?>" method="post" class="delete">
-            <input type="submit" value="supprimer"/>
-        </form>
     </div>
     
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>

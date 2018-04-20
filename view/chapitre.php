@@ -13,13 +13,13 @@
     <?php include('templates/nav.php');?>
     <?php include('templates/header.php');?>
 
-    <div class="post border border-dark m-3 p-4">
+    <div class="post  m-5 p-4">
         <h2 class="text-center"> <?php echo htmlspecialchars($post->getTitle()); ?> </h2>
         <p> <?php echo $post->getContent(); ?> </p>
     </div>
 
-    <div class="addComment m-3">
-        <h3 class="text-center m-4">Ajouter un commentaire</h3>
+    <div class="addComment m-5 ">
+        <h3 class="text-center m-5">Ajout commentaires</h3>
         <form class="border border-dark p-4" action="index.php?action=addComment&amp;id=<?php echo $post->getId(); ?>" method="post">
             <div>
                 <label for="author">Auteur</label><br />
@@ -30,13 +30,13 @@
                 <textarea id="comment" name="comment"></textarea>
             </div>
             <div>
-                <input type="submit" value="envoyer"/>
+                <input class="btn btn-primary" type="submit" value="envoyer"/>
             </div>
         </form>
     </div>
 
-    <div class="comment m-3">
-        <h3 class="text-center m-4">Commentaires</h3>
+    <div class="comment m-5">
+        <h3 class="text-center m-5">Commentaires</h3>
         <?php
 
             foreach ($comment as $comment)
@@ -48,7 +48,7 @@
                 <p>publié le: <?php echo htmlspecialchars($comment->getDateComment()); ?></p>
                 <form action="index.php?action=reportComment&amp;id=<?php echo $comment->getId();?>" method="post">
                     <div>
-                        <input type="submit" value="signaler"/>
+                        <input class="btn btn-primary" type="submit" value="signaler"/>
                     </div>
                 </form>
             </div>

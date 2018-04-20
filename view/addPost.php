@@ -18,9 +18,9 @@
 <body>
 
     <?php include('templates/nav.php'); ?>
+    <h3 class="text-center m-3">ajout chapitre</h3>
 
-    <div class="addPost">
-        <p>ajouter un chapitre:</p>
+    <div class="addPost m-5 p-5 border border-dark">
         <form action="index.php?action=addPost" method="post">
             <div>
                 <label for="titlePost">Titre du chapitre</label><br />
@@ -31,7 +31,7 @@
                 <textarea id="contentPost" name="contentPost"></textarea>
             </div>
             <div>
-                <input type="submit" value="publier"/>
+                <input class="btn btn-primary" type="submit" value="publier"/>
             </div>
         </form>
     </div>

@@ -11,19 +11,19 @@
 <body>
 
     <?php include('templates/nav.php'); ?>
-
-    <h2>chapitre à modifier :</h2>
-
-    <?php
-    foreach ($posts as $post)
-    {
-    ?>
-    <div class="posts">
-        <a href="index.php?action=updatePost&amp;id=<?php echo $post->getId(); ?>"><?php echo htmlspecialchars($post->getTitle()); ?></a>
+    <h3 class="text-center m-3">modifier chapitre</h3>
+    <div class="border border-dark m-5 p-5">
+        <?php
+        foreach ($posts as $post)
+        {
+        ?>
+        <div class="posts">
+            <a href="index.php?action=updatePost&amp;id=<?php echo $post->getId(); ?>"><?php echo htmlspecialchars($post->getTitle()); ?></a>
+        </div>
+        <?php
+        }
+        ?>
     </div>
-    <?php
-    }
-    ?>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.js'></script> 
