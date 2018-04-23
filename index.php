@@ -42,6 +42,10 @@ try { // On essaie de faire des choses
                 throw new Exception('tous les champs ne sont pas remplis');
             }
         }
+        elseif ($_GET['action'] == 'connexionForm'){
+            connexionForm();
+        }
+
         elseif ($_GET['action'] == 'connexion'){
             if (!empty($_POST['pseudo']) && !empty($_POST['password'])){
                 connexion($_POST['pseudo'], $_POST['password']);
@@ -49,6 +53,7 @@ try { // On essaie de faire des choses
         }
 
         elseif ($_GET['action'] == 'admin'){
+            // à supprimer
             admin();
         }
 

@@ -28,7 +28,6 @@ function addPost($titlePost, $contentPost)
     $postDAO = new PostDAO();
     $post = $postDAO->createPost($titlePost, $contentPost);
 
-
     if ($post === false){
         throw new Exception('Impossible de créer l\'article !');
     }
@@ -58,13 +57,29 @@ function reportedComment($commentId)
     header('location: index.php');
 }
 
+function connexionForm()
+{
+    $postDAO = new PostDAO();
+    $posts = $postDAO->getPosts();
+    require('view/connexion.php');
+}
+
 function connexion($pseudo, $password)
 {
     $userDAO = new UserDAO();
+    $postDAO = new PostDAO();
+
+    $user = $userDAO->connect($pseudo);
+    $posts = $postDAO->getPosts();
+    if ($user->getPassword() == $password){
+        require('view/admin.php');
+    }
+    
 }
 
 function admin()
 {
+    // à supprimer
     $postDAO = new PostDAO();
     $posts = $postDAO->getPosts();
     require('view/admin.php');

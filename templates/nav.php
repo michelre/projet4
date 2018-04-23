@@ -21,8 +21,6 @@
                     {
                 ?>
                     <a class="dropdown-item" href="index.php?action=post&amp;id=<?php echo $postNav->getId()?>"><?php echo $postNav->getTitle()?></a>
-                    
-
                 <?php
                     }
                 ?>
@@ -30,7 +28,7 @@
             </li>
 
             <li class="nav-item">
-              	<a class="nav-link" href="index.php?action=admin"><i class="fa fa-sign-in" aria-hidden="true"></i>Connexion</a>
+              	<a class="nav-link" href="index.php?action=connexionForm"><i class="fa fa-sign-in" aria-hidden="true"></i>Connexion</a>
             </li>
         </ul>
     </div>

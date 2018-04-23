@@ -7,7 +7,7 @@ class User
     private $password;
     private $email;
 
-    public function __construct($id, $login, $password, $email)
+    public function __construct($id, $pseudo, $password, $email)
     {
         $this->id = $id;
         $this->pseudo = $pseudo;
