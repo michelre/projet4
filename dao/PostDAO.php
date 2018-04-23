@@ -4,7 +4,8 @@ require_once('model/Post.php');
 
 class PostDAO extends BaseDAO
 {
-    public function getPosts(){
+    public function getPosts()
+    {
         $db = $this->dbConnect();
         $req = $db->query('SELECT *, DATE_FORMAT(date_created, \'%d/%m/%y\') as created_date FROM posts');
         $posts = [];
@@ -14,7 +15,8 @@ class PostDAO extends BaseDAO
         return $posts;
     }
 
-    public function getPost($postId){
+    public function getPost($postId)
+    {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT * FROM posts WHERE id = ?');
         $req->execute(array($postId));
@@ -23,7 +25,8 @@ class PostDAO extends BaseDAO
         return new Post($post['id'], $post['title'], $post['content'], $post['date_created']);
     }
 
-    public function createPost($titlePost, $contentPost){
+    public function createPost($titlePost, $contentPost)
+    {
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO posts(title, content, date_created) VALUES(?, ?, NOW())');
         $post = $req->execute(array($titlePost, $contentPost));
@@ -31,7 +34,8 @@ class PostDAO extends BaseDAO
         return $post;
     }
 
-    public function updatePost($titlePost, $contentPost, $postId){
+    public function updatePost($titlePost, $contentPost, $postId)
+    {
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE posts SET title = ?, content= ? WHERE id = ?');
         $post = $req->execute(array($titlePost, $contentPost, $postId));
@@ -39,7 +43,8 @@ class PostDAO extends BaseDAO
         return $post;
     }
 
-    public function deletePost($postId){
+    public function deletePost($postId)
+    {
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE posts, comments FROM posts INNER JOIN comments ON (posts.id = comments.post_id) WHERE posts.id = ?');
         $post = $req->execute(array($postId));
