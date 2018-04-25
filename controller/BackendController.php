@@ -78,12 +78,12 @@ class BackendController
     public function deleteComments($commentId)
     {
         $comment = $this->commentDAO->deleteComment($commentId);
-        header('Location: index.php');
+        header('Location: index.php?action=reportedCommentList');
     }
 
     public function acceptComments($commentId)
     {
         $comment = $this->commentDAO->acceptComment($commentId);
-        header('location: index.php');
+        header('location: index.php?action=reportedCommentList');
     }
 }
