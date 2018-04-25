@@ -1,0 +1,9 @@
+.comment-input {
+    width: 100%;
+    max-width: 330px;
+    padding: 7px;
+}
+
+.comment-height{
+    height: 150px;
+}

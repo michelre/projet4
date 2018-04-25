@@ -7,6 +7,7 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css'/>
     <link rel="stylesheet" href="public/nav.css">
+    <link rel="stylesheet" href="public/comment.css">
     <title>chapitre</title>
 </head>
 <body>
@@ -22,15 +23,15 @@
     <div class="addComment m-1 p-2 m-md-4 p-md-4">
         <h3 class="text-center m-2 m-md-5">Ajout commentaires</h3>
         <form class="border border-dark p-4" action="index.php?action=addComment&amp;id=<?php echo $post->getId(); ?>" method="post">
-            <div>
+            <div class="comment-input">
                 <label for="author">Auteur</label><br />
-                <input type="text" id="author" name="author" />
+                <input class="form-control" type="text" id="author" name="author"/>
             </div>
-            <div>
+            <div class="comment-input ">
                 <label for="comment">Commentaire</label><br />
-                <textarea id="comment" name="comment"></textarea>
+                <textarea class="form-control comment-height" id="comment" name="comment"></textarea>
             </div>
-            <div>
+            <div class="comment-input ">
                 <input class="btn btn-primary" type="submit" value="envoyer"/>
             </div>
         </form>
