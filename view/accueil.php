@@ -35,7 +35,7 @@
                         {
                     ?>
                     <tr class="text-center">
-                        <td><?php echo htmlspecialchars($post->getTitle()); ?></td>
+                        <td><a href="index.php?action=post&amp;id=<?php echo htmlspecialchars($post->getId()); ?>"><?php echo htmlspecialchars($post->getTitle()); ?></a></td>
                         <td><?php echo htmlspecialchars($post->getDateCreated()); ?></td>
                     </tr>
                     <?php
