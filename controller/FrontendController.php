@@ -47,6 +47,11 @@ class FrontendController
     public function connexionForm()
     {
         $posts = $this->postDAO->getPosts();
-        require('view/connexion.php');
+        if (isset($_COOKIE["session"])){
+            require('view/admin.php');
+        }
+        else{
+            require('view/connexion.php');
+        } 
     }
 }

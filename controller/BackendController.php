@@ -20,7 +20,9 @@ class BackendController
     {
         $user = $this->userDAO->connect($pseudo);
         $posts = $this->postDAO->getPosts();
-        if ($user->getPassword() == password_verify($password, $user->getPassword())){
+        if (password_verify($password, $user->getPassword())){
+            $cookieValue = 'test';
+            setcookie("session", $cookieValue, time()+600);
             require('view/admin.php');
         }
         else{
