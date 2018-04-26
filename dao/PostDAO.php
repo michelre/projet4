@@ -46,7 +46,7 @@ class PostDAO extends BaseDAO
     public function deletePost($postId)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('DELETE posts, comments FROM posts INNER JOIN comments ON (posts.id = comments.post_id) WHERE posts.id = ?');
+        $req = $db->prepare('DELETE posts, comments FROM posts LEFT JOIN comments ON (posts.id = comments.post_id) WHERE posts.id = ?');
         $post = $req->execute(array($postId));
 
         return $post;
