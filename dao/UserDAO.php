@@ -11,6 +11,6 @@ class UserDAO extends BaseDAO
         $req->execute(array($pseudo));
         $user = $req->fetch();
 
-        return new User($user['id'], $user['pseudo'], $user['password'], $user['email']);
+        return new User($user['id'], $user['pseudo'], $user['mot_de_passe'], $user['email']);
     }
 }
