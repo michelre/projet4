@@ -7,12 +7,13 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css'/>
     <link rel="stylesheet" href="public/nav.css">
+    <link rel="stylesheet" href="public/margin.css">
     <title>Gestion chapitre</title>
 </head>
 <body>
 
     <?php include('templates/nav.php'); ?>
-    <h3 class="text-center m-3">modifier chapitre</h3>
+    <h3 class="text-center margin-admin">modifier chapitre</h3>
     <div class="border border-dark m-5 p-5">
         <?php
         foreach ($posts as $post)

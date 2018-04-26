@@ -8,13 +8,14 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css'/>
     <link rel="stylesheet" href="public/nav.css">
     <link rel="stylesheet" href="public/formConnexion.css">
+    <link rel="stylesheet" href="public/margin.css">
     <title>Connexion</title>
 </head>
 <body>
 
     <?php include('templates/nav.php'); ?>
 
-    <form action="index.php?action=connexion" method="post" class="form-signin">
+    <form action="index.php?action=connexion" method="post" class="form-signin margin">
         <h4 class="h3 mb-3 font-weight-normal text-center">Connectez vous :</h4>
         <label for="inputText">Nom:</label>
         <input type="text" id="pseudo" name="pseudo" class="form-control" placeholder="votre nom" required >

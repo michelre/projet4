@@ -7,6 +7,7 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css'/>
     <link rel="stylesheet" href="public/nav.css">
+    <link rel="stylesheet" href="public/margin.css">
     <script src="scripts/tinymce/tinymce.min.js"></script>
     <script>
         tinymce.init({
@@ -19,7 +20,7 @@
 <body>
 
     <?php include('templates/nav.php'); ?>
-    <h3 class="text-center m-3">ajout chapitre</h3>
+    <h3 class="text-center margin-admin">ajout chapitre</h3>
 
     <div class="addPost m-5 p-5 border border-dark">
         <form action="index.php?action=addPost" method="post">

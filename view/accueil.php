@@ -7,6 +7,7 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css'/>
     <link rel="stylesheet" href="public/nav.css">
+    <link rel="stylesheet" href="public/margin.css">
     <title>Accueil</title>
 </head>
 <body>
@@ -14,12 +15,17 @@
     <?php include('templates/nav.php');?>
     <?php include('templates/header.php');?>
 
-    <h1 class="text-center">Billet simple pour l'Alaska</h1>
+    <h1 class="text-center mt-3 mt-md-5">Billet simple pour l'Alaska</h1>
 
-    <div class="d-lg-flex">
+    <div class="d-lg-flex mt-3 mt-md-5">
         <div class="présentation p-3 p-md-4">
-            <p>bienvenue à vous je suis Forteroche Jean écrivain depuis plus de 20 ans. A l'occasion de la sortie de mon nouveau roman,
-             je vous propose de le découvrir sur mon site internet sous la forme de chapitre qui sortiront successivement les uns après les autres.</p>
+            <p>bienvenue à vous je suis Forteroche Jean écrivain depuis plus de 20 ans. A l'occasion de la sortie de mon nouveau roman Billet simple pour l'Alaska,
+             je vous propose de le découvrir sur mon site internet sous la forme d'épisodes qui sortiront successivement les uns après les autres.
+            </p>
+            <p>
+             Vous pourrez bien évidemment trouver mon nouveau roman en librairie mais aussi en version ebook.
+             Je vous souhaites une bonne visite ainsi qu'une bonne lecture !
+            </p>
         </div>
         <div class="liste-article p-3 p-md-4 w-100">
             <table class="table table-striped table-bordered ">
