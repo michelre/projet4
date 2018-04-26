@@ -20,7 +20,7 @@ class BackendController
     {
         $user = $this->userDAO->connect($pseudo);
         $posts = $this->postDAO->getPosts();
-        if ($user->getPassword() == sha1($password)){
+        if ($user->getPassword() == password_verify($password, $user->getPassword())){
             require('view/admin.php');
         }
         else{

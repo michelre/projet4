@@ -1,6 +1,6 @@
 <?php 
     $pseudo = 'clement';
-    $mdp = sha1('projet');
+    $mdp = password_hash("projet", PASSWORD_DEFAULT);
     $email = 'jeanforteroche@outlook.fr';
 
     $db = new PDO('mysql:host=localhost;dbname=projet_blog;charset=utf8', 'root', '');
