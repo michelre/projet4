@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 10 avr. 2018 à 12:10
+-- Généré le :  jeu. 26 avr. 2018 à 15:19
 -- Version du serveur :  10.1.30-MariaDB
 -- Version de PHP :  7.2.2
 
@@ -33,20 +33,18 @@ CREATE TABLE `comments` (
   `post_id` int(11) NOT NULL,
   `author` varchar(255) NOT NULL,
   `comment` varchar(255) NOT NULL,
-  `date_comment` date NOT NULL
+  `date_comment` date NOT NULL,
+  `reported_comment` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `comments`
 --
 
-INSERT INTO `comments` (`id`, `post_id`, `author`, `comment`, `date_comment`) VALUES
-(1, 1, 'clement', 'commentaire 1', '2018-04-03'),
-(2, 1, 'clement', 'commentaire 2', '2018-04-03'),
-(3, 2, 'clem', 'commentaire un', '2018-04-03'),
-(4, 1, 'max', 'test', '2018-04-08'),
-(6, 3, 'micka', 'super projet ! ', '2018-04-09'),
-(7, 1, 'micka', 't\'es trop fort ', '2018-04-10');
+INSERT INTO `comments` (`id`, `post_id`, `author`, `comment`, `date_comment`, `reported_comment`) VALUES
+(1, 1, 'clement', 'commentaire 1', '2018-04-03', 0),
+(2, 1, 'clement', 'commentaire 2', '2018-04-03', 0),
+(4, 1, 'max', 'test', '2018-04-08', 0);
 
 -- --------------------------------------------------------
 
@@ -66,11 +64,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `content`, `date_created`) VALUES
-(1, 'chapitre un', 'Nec piget dicere avide magis hanc insulam populum Romanum invasisse quam iuste. Ptolomaeo enim rege foederato nobis et socio ob aerarii nostri angustias iusso sine ulla culpa proscribi ideoque hausto veneno voluntaria morte deleto et tributaria facta est et velut hostiles eius exuviae classi inpositae in urbem advectae sunt per Catonem, nunc repetetur ordo gestorum.\r\n\r\nExsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt, esse debet suavissima; verumque illud est, quod dicitur, multos modios salis simul edendos esse, ut amicitiae munus expletum sit.\r\n\r\nNam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus; satis superque esse sibi suarum cuique rerum, alienis nimis implicari molestum esse; commodissimum esse quam laxissimas habenas habere amicitiae, quas vel adducas, cum velis, vel remittas; caput enim esse ad beate vivendum securitatem, qua frui non possit animus, si tamquam parturiat unus pro pluribus.', '2018-03-27 00:00:00'),
-(2, 'chapitre deux', 'Nec piget dicere avide magis hanc insulam populum Romanum invasisse quam iuste. Ptolomaeo enim rege foederato nobis et socio ob aerarii nostri angustias iusso sine ulla culpa proscribi ideoque hausto veneno voluntaria morte deleto et tributaria facta est et velut hostiles eius exuviae classi inpositae in urbem advectae sunt per Catonem, nunc repetetur ordo gestorum.\r\n\r\nExsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt, esse debet suavissima; verumque illud est, quod dicitur, multos modios salis simul edendos esse, ut amicitiae munus expletum sit.\r\n\r\nNam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus; satis superque esse sibi suarum cuique rerum, alienis nimis implicari molestum esse; commodissimum esse quam laxissimas habenas habere amicitiae, quas vel adducas, cum velis, vel remittas; caput enim esse ad beate vivendum securitatem, qua frui non possit animus, si tamquam parturiat unus pro pluribus.', '2018-03-27 00:00:00'),
-(3, 'chapitre trois', 'Nec piget dicere avide magis hanc insulam populum Romanum invasisse quam iuste. Ptolomaeo enim rege foederato nobis et socio ob aerarii nostri angustias iusso sine ulla culpa proscribi ideoque hausto veneno voluntaria morte deleto et tributaria facta est et velut hostiles eius exuviae classi inpositae in urbem advectae sunt per Catonem, nunc repetetur ordo gestorum.\r\n\r\nExsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt, esse debet suavissima; verumque illud est, quod dicitur, multos modios salis simul edendos esse, ut amicitiae munus expletum sit.\r\n\r\nNam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus; satis superque esse sibi suarum cuique rerum, alienis nimis implicari molestum esse; commodissimum esse quam laxissimas habenas habere amicitiae, quas vel adducas, cum velis, vel remittas; caput enim esse ad beate vivendum securitatem, qua frui non possit animus, si tamquam parturiat unus pro pluribus.', '2018-03-27 00:00:00'),
-(4, 'chapitre quatre', 'test', '2018-04-09 20:26:43'),
-(5, 'chapitre cinq', 'test sur le chapitre 5', '2018-04-09 20:32:42');
+(1, 'Le musher', '<p>Qui est ce Dan Murphy qui traverse l\'Alaska au seuil de l\'hiver ? Les gens se d&eacute;tournent sur son passage, les chasseurs cherchent &agrave; le tuer, la police et la bonne soci&eacute;t&eacute; voudraient le voir aux cinq cents diables. Lui, il est revenu par bravade, et peut-&ecirc;tre aussi pour reconqu&eacute;rir une femme perdue. Il va tenter de gagner l\'impossible &eacute;preuve, l\'Iditarod, une course de tra&icirc;neaux tir&eacute;s par des chiens sur 1 800 kilom&egrave;tres. Ce roman d\'aventures est aussi l\'histoire d\'Eccluke, la chienne de t&ecirc;te, f&eacute;roce pour tous et pleine d\'amour pour Dan, son musher et son ma&icirc;tre.</p>\r\n<p>source :https://books.google.fr&nbsp;</p>', '2018-03-27 00:00:00'),
+(2, 'L\'Ours bleu', '<p style=\"text-align: left;\">Une histoire d\'amiti&eacute; une qu&ecirc;te d\'absolu. Dans les contr&eacute;es sauvages de l\'Alaska, au milieu des fjords, des for&ecirc;ts et des glaciers, Lynn Schooler exerce le m&eacute;tier de guide. Sa rencontre avec le l&eacute;gendaire photographe japonais Michio Hoshino, venu faire un reportage sur les baleines, sera d&eacute;terminante. Pendant une dizaine d\'ann&eacute;es, ils se retrouvent r&eacute;guli&egrave;rement le long de la banquise, dans l\'espoir de rep&eacute;rer et de photographier un animal rare et mythique, l\'ours bleu, connu &eacute;galement sous le nom d\'\"ours des glaciers\". C\'est leur histoire, ces longues exp&eacute;ditions, parfois risqu&eacute;es, men&eacute;es ensemble dans l\'intimit&eacute; d\'une nature encore pr&eacute;serv&eacute;e mais dangereuse, que Lynn Schooler raconte dans ces m&eacute;moires charg&eacute;s d\'&eacute;motions extr&ecirc;mes. Lynn Schooler vit depuis trente ans en Alaska. Il habite sur un bateau &agrave; Juneau. Tour &agrave; tour p&ecirc;cheur, photographe, guide touristique, il a gagn&eacute; plusieurs prix pour son activit&eacute; de photographe.</p>\r\n<p>source:&nbsp;https://books.google.fr</p>', '2018-03-27 00:00:00'),
+(3, 'Coeur de loup', '<p>Le Grand Nord... Trois syllabes qui d&eacute;bouchent sur l\'infini. Quelque part, &agrave; l\'autre bout du monde, subsistent encore des espaces vierges, des champs de neige immacul&eacute;s, des for&ecirc;ts o&ugrave; l\'ours et l\'&eacute;lan vagabondent &agrave; leur guise. Seule la nature y impose sa loi.... &agrave; ceux du moins qui sont de taille &agrave; l\'accepter. Un journaliste anglais a relev&eacute; le d&eacute;fi. Robinson volontaire, il s\'est enfonc&eacute; dans ce d&eacute;sert blanc o&ugrave; durant des mois, le thermom&egrave;tre descend &agrave; 40&deg; au-dessous de z&eacute;ro. Pour y accomplir un exploit ? Non&nbsp; pour savourer la grisante libert&eacute; de la vie &agrave; l\'&eacute;tat sauvage. Ecoutez-le. Il nous livre le r&eacute;cit authentique de ses combats quotidiens, et surtout nous raconte l\'alliance qu\'il scella avec Yukon, le chien-loup qui fut, durant plus d\'un an, son guide, son confident, et parfois son sauveur. Tous ceux qui liront ce t&eacute;moignage exceptionnel resteront fascin&eacute;s par la magie de cette amiti&eacute; o&ugrave; l\'homme et l\'animal se font d&eacute;couvrir l\'un &agrave; l\'autre leur v&eacute;rit&eacute;</p>\r\n<p>source:&nbsp;https://books.google.fr</p>', '2018-03-27 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -80,8 +76,8 @@ INSERT INTO `posts` (`id`, `title`, `content`, `date_created`) VALUES
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `login` varchar(255) NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `pseudo` varchar(255) NOT NULL,
+  `mot_de_passe` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -89,8 +85,8 @@ CREATE TABLE `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `login`, `password`, `email`) VALUES
-(1, 'clément', '*FAF180551F0D191415AAF613850510F7CCD9ABA2', 'braunschweig-dubost@outlook.fr');
+INSERT INTO `user` (`id`, `pseudo`, `mot_de_passe`, `email`) VALUES
+(5, 'clement', '$2y$10$CNVS.w5hSamHktKbnngxdeBej/LhKPG1nbqgcWCDoMpN6FhRdSwhS', 'jeanforteroche@outlook.fr');
 
 --
 -- Index pour les tables déchargées
@@ -122,19 +118,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
