@@ -21,13 +21,20 @@ class BackendController
         $user = $this->userDAO->connect($pseudo);
         $posts = $this->postDAO->getPosts();
         if (password_verify($password, $user->getPassword())){
-            $cookieValue = 'test';
-            setcookie("session", $cookieValue, time()+600);
+            $cookieValue = 'connexion';
+            setcookie("session", $cookieValue, time()+1200);
             require('view/admin.php');
         }
         else{
             require('view/connexion.php');
         }
+    }
+
+    public function disconnect()
+    {
+        $cookieValue = 'connexion';
+        setcookie("session", $cookieValue, time()-1200);
+        header('Location: index.php');
     }
 
     public function newPost()

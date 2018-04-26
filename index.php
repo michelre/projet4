@@ -60,6 +60,11 @@ try { // On essaie de faire des choses
             }
         }
 
+        elseif ($_GET['action'] == 'disconnect'){
+            $backendController = new BackendController();
+            $backendController->disconnect();
+        }
+
         elseif ($_GET['action'] == 'newPost'){
             $backendController = new BackendController();
             $backendController->newPost();

@@ -16,13 +16,18 @@
     <?php include('templates/nav.php'); ?>
     <h3 class="text-center margin-admin">Administration</h3>
 
-    <div class="actionAdmin m-5 p-4 border border-dark">
+    <div class="actionAdmin m-3 p-2 m-md-5 p-md-4 border border-dark">
         <a href="index.php?action=newPost">créer un nouveau chapitre</a>
         <a href="index.php?action=updateList" class="d-block">modifier/supprimer un chapitre</a>
         <a href="index.php?action=reportedCommentList">gestion des commentaires</a>
     </div>
-    
 
+    <div class="m-5">
+        <form action="index.php?action=disconnect" method="post" class="d-flex justify-content-center">
+            <input class="btn btn-primary" type="submit" value="déconnexion"/>
+        </form>
+    </div>
+    
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.js'></script> 
 </body>
