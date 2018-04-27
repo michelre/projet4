@@ -15,6 +15,7 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css'/>
     <link rel="stylesheet" href="public/nav.css">
     <link rel="stylesheet" href="public/margin.css">
+    <link rel="stylesheet" href="public/contact.css">
     <title>Accueil</title>
 </head>
 <body>
@@ -26,6 +27,7 @@
 
     <div class="d-lg-flex mt-3 mt-md-5">
         <div class="présentation p-3 p-md-4">
+            <h2 class="text-center mb-4">À propos de moi</h2>
             <p>bienvenue à vous je suis Forteroche Jean écrivain depuis plus de 20 ans. A l'occasion de la sortie de mon nouveau roman Billet simple pour l'Alaska,
              je vous propose de le découvrir sur mon site internet sous la forme d'épisodes qui sortiront successivement les uns après les autres.
             </p>
@@ -35,7 +37,8 @@
             </p>
         </div>
         <div class="liste-article p-3 p-md-4 w-100">
-            <table class="table table-striped table-bordered ">
+            <h2 class="text-center mb-4">Épisodes publiés</h2>
+            <table class="table table-striped table-bordered">
                 <thead>
                     <tr class="text-center">
                         <th scope="col">titre</th>
@@ -56,6 +59,15 @@
                     ?>
                 </tbody>
             </table>
+
+            <div class="contact mt-5">
+                <h2 class="text-center mb-4">Contact</h2>
+                <div class="bordure mb-4 p-4 d-sm-flex justify-content-around custom">
+                    <a href=""><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>Facebook</a>
+                    <a href=""><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>Twitter</a>
+                    <a href=""><i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>Email</a>
+                </div>
+            </div>
         </div>
     </div>
 
