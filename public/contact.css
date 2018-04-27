@@ -1,0 +1,19 @@
+.fa.fa-facebook-square, .fa.fa-twitter-square, .fa.fa-envelope-square{
+    margin-right: 5px;
+}
+
+.bordure{
+    border: 1px solid rgb(222, 226, 230);
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 575px){
+    .custom{
+        display: flex;
+        flex-direction: column;
+    }
+    .fa.fa-facebook-square, .fa.fa-twitter-square, .fa.fa-envelope-square{
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+}
