@@ -23,7 +23,7 @@ class BackendController
         if (password_verify($password, $user->getPassword())){
             $cookieValue = 'connexion';
             setcookie("session", $cookieValue, time()+1200);
-            require('view/admin.php');
+            header('Location: index.php?action=connexionForm');
         }
         else{
             require('view/connexion.php');
@@ -45,7 +45,6 @@ class BackendController
 
     public function addPost($titlePost, $contentPost)
     {
-
         $post = $this->postDAO->createPost($titlePost, $contentPost);
         if ($post === false){
             throw new Exception('Impossible de créer l\'article !');
