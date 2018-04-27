@@ -30,7 +30,7 @@
 
     <div class="addComment m-1 p-2 m-md-4 p-md-4">
         <h3 class="text-center m-2 m-md-5">Ajout commentaires</h3>
-        <form class="border border-dark p-4" action="index.php?action=addComment&amp;id=<?php echo $post->getId(); ?>" method="post">
+        <form class="border border-dark rounded p-4" action="index.php?action=addComment&amp;id=<?php echo $post->getId(); ?>" method="post">
             <div class="comment-input">
                 <label for="author">Auteur</label><br />
                 <input class="form-control" type="text" id="author" name="author"/>
@@ -50,7 +50,7 @@
             foreach ($comment as $comment)
             {
             ?>
-            <div class="comments border border-dark mb-4 p-4">
+            <div class="comments border border-dark rounded mb-4 p-4">
                 <h3> <?php echo htmlspecialchars($comment->getAuthor()); ?> </h3>
                 <p> <?php echo htmlspecialchars($comment->getComment()); ?> </p>
                 <p>publié le: <?php echo htmlspecialchars($comment->getDateComment()); ?></p>
