@@ -24,7 +24,7 @@
     <?php include('templates/nav.php'); ?>
     <h3 class="text-center margin-admin">modifications chapitre</h3>
 
-    <div class="updatePost m-5 p-5 border border-dark">
+    <div class="updatePost m-5 p-5 border border-dark rounded">
 
         <form action="index.php?action=updateConfirmation&amp;id=<?php echo $post->getId(); ?>" method="post">
             <div>

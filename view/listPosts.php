@@ -16,7 +16,7 @@
 
     <?php include('templates/nav.php'); ?>
     <h3 class="text-center margin-admin">modifier chapitre</h3>
-    <div class="border border-dark m-5 p-5">
+    <div class="border border-dark rounded m-5 p-5">
         <?php
         foreach ($posts as $post)
         {
