@@ -7,6 +7,10 @@
     border-radius: 5px;
 }
 
+.contact .bordure{
+    background-color: rgb(242, 242, 242);
+}
+
 @media screen and (max-width: 575px){
     .custom{
         display: flex;
