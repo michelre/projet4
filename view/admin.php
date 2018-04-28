@@ -16,7 +16,7 @@
     <?php include('templates/nav.php'); ?>
     <h3 class="text-center margin-admin">Administration</h3>
 
-    <div class="actionAdmin m-3 p-2 m-md-5 p-md-4 border border-dark rounded">
+    <div class="actionAdmin m-2 p-2 m-md-5 p-md-4 border border-dark rounded">
         <a href="index.php?action=newPost">créer un nouveau chapitre</a>
         <a href="index.php?action=updateList" class="d-block">modifier/supprimer un chapitre</a>
         <a href="index.php?action=reportedCommentList">gestion des commentaires</a>

@@ -22,7 +22,7 @@
         foreach ($comment as $comment)
         {
     ?>
-        <div class="comments m-5 p-4 border border-dark rounded">
+        <div class="comments m-2 p-2 m-md-5 p-md-4 border border-dark rounded">
             <h3> <?php echo htmlspecialchars($comment->getAuthor()); ?> </h3>
             <p> <?php echo htmlspecialchars($comment->getComment()); ?> </p>
             <p>publié le: <?php echo htmlspecialchars($comment->getDateComment()); ?></p>

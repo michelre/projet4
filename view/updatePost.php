@@ -24,7 +24,7 @@
     <?php include('templates/nav.php'); ?>
     <h3 class="text-center margin-admin">modifications chapitre</h3>
 
-    <div class="updatePost m-5 p-5 border border-dark rounded">
+    <div class="updatePost m-2 p-2 m-md-5 p-md-5 border border-dark rounded">
 
         <form action="index.php?action=updateConfirmation&amp;id=<?php echo $post->getId(); ?>" method="post">
             <div>
@@ -35,7 +35,7 @@
                 <label for="contentPost">Contenu du chapitre</label><br />
                 <textarea id="contentPost" name="contentPost"><?php echo htmlspecialchars($post->getContent()); ?></textarea>
             </div>
-            <div>
+            <div class="mt-3">
                 <div class="d-inline">
                     <input class="btn btn-primary" type="submit" value="modifier"/>
                 </div>
