@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="public/nav.css">
     <link rel="stylesheet" href="public/comment.css">
     <link rel="stylesheet" href="public/margin.css">
-    <title>chapitre</title>
+    <title><?php echo htmlspecialchars($post->getTitle());?></title>
 </head>
 <body>
 
@@ -47,7 +47,7 @@
 
     <div class="comment m-1 p-2 m-md-4 p-md-4"> 
         <?php
-            foreach ($comment as $comment)
+            foreach ($comments as $comment)
             {
             ?>
             <div class="comments border border-dark rounded mb-4 p-4">

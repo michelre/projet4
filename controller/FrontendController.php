@@ -22,7 +22,7 @@ class FrontendController
     public function post()
     {
         $post = $this->postDAO->getPost($_GET['id']);
-        $comment = $this->commentDAO->getComments($_GET['id']);
+        $comments = $this->commentDAO->getComments($_GET['id']);
         $posts = $this->postDAO->getPosts();
         require('view/chapitre.php');
     }
