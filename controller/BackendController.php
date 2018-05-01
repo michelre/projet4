@@ -39,62 +39,107 @@ class BackendController
 
     public function newPost()
     {
-        $posts = $this->postDAO->getPosts();
-        require('view/addPost.php');
+        if (isset($_COOKIE["session"])){
+            $posts = $this->postDAO->getPosts();
+            require('view/addPost.php');
+        }
+        else{
+            require('view/connexion.php');
+        }
     }
 
     public function addPost($titlePost, $contentPost)
     {
-        $post = $this->postDAO->createPost($titlePost, $contentPost);
-        if ($post === false){
-            throw new Exception('Impossible de créer l\'article !');
+        if (isset($_COOKIE["session"])){
+            $post = $this->postDAO->createPost($titlePost, $contentPost);
+            if ($post === false){
+                throw new Exception('Impossible de créer l\'article !');
+            }
+            else{
+                header('Location: index.php');
+            }
         }
         else{
-            header('Location: index.php');
+            require('view/connexion.php');
         }
     }
 
     public function updateList()
     {
-        $posts = $this->postDAO->getPosts();
-        require('view/listPosts.php');
+        if (isset($_COOKIE["session"])){
+            $posts = $this->postDAO->getPosts();
+            require('view/listPosts.php');
+        }
+        else{
+            require('view/connexion.php');
+        }
     }
 
     public function postUpdate()
     {
-        $post = $this->postDAO->getPost($_GET['id']);
-        $posts = $this->postDAO->getPosts();
-        require('view/updatePost.php');
+        if (isset($_COOKIE["session"])){
+            $post = $this->postDAO->getPost($_GET['id']);
+            $posts = $this->postDAO->getPosts();
+            require('view/updatePost.php');
+        }
+        else{
+            require('view/connexion.php');
+        }
     }
 
     public function updateConfirmation($titlePost, $contentPost, $postId)
     {
-        $post = $this->postDAO->updatePost($titlePost, $contentPost, $postId);
-        header('Location: index.php?action=post&id=' . $postId);
+        if (isset($_COOKIE["session"])){
+            $post = $this->postDAO->updatePost($titlePost, $contentPost, $postId);
+            header('Location: index.php?action=post&id=' . $postId);
+        }
+        else{
+            require('view/connexion.php');
+        }
     }
 
     public function deletePost($postId)
     {
-        $post = $this->postDAO->deletePost($postId);
-        header('Location: index.php');
+        if (isset($_COOKIE["session"])){
+            $post = $this->postDAO->deletePost($postId);
+            header('Location: index.php');
+        }
+        else{
+            require('view/connexion.php');
+        }
     }
 
     public function reportedList()
     {
-        $comment = $this->commentDAO->commentList();
-        $posts = $this->postDAO->getPosts();
-        require('view/commentaires.php');
+        if (isset($_COOKIE["session"])){
+            $comment = $this->commentDAO->commentList();
+            $posts = $this->postDAO->getPosts();
+            require('view/commentaires.php');
+        }
+        else{
+            require('view/connexion.php');
+        }
     }
 
     public function deleteComments($commentId)
     {
-        $comment = $this->commentDAO->deleteComment($commentId);
-        header('Location: index.php?action=reportedCommentList');
+        if (isset($_COOKIE["session"])){
+            $comment = $this->commentDAO->deleteComment($commentId);
+            header('Location: index.php?action=reportedCommentList');
+        }
+        else{
+            require('view/connexion.php');
+        }
     }
 
     public function acceptComments($commentId)
     {
-        $comment = $this->commentDAO->acceptComment($commentId);
-        header('location: index.php?action=reportedCommentList');
+        if (isset($_COOKIE["session"])){
+            $comment = $this->commentDAO->acceptComment($commentId);
+            header('location: index.php?action=reportedCommentList');
+        }
+        else{
+            require('view/connexion.php');
+        }
     }
 }
