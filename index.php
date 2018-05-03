@@ -2,7 +2,7 @@
 require('controller/FrontendController.php');
 require('controller/BackendController.php');
 
-try { // On essaie de faire des choses
+try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             $frontendController = new FrontendController();
@@ -125,6 +125,6 @@ try { // On essaie de faire des choses
         $frontendController->listPosts();
     }
 }
-catch(Exception $e) { // S'il y a eu une erreur, alors...
+catch(Exception $e) { // S'il y a eu une erreur
     echo 'Erreur : ' . $e->getMessage();
 }
