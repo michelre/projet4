@@ -16,14 +16,16 @@ class BackendController
         $this->userDAO = new UserDAO;
     }
 
-    public function connexion($pseudo, $password)
+    public function connexion($reqData)
     {
+        $pseudo = $reqData["pseudo"] ?? "";
+        $password = $reqData["password"] ?? "";
         $user = $this->userDAO->connect($pseudo);
         $posts = $this->postDAO->getPosts();
         if (password_verify($password, $user->getPassword())){
             $cookieValue = 'connexion';
             setcookie("session", $cookieValue, time()+1200);
-            header('Location: index.php?action=connexionForm');
+            header('Location: /connexion');
         }
         else{
             require('view/connexion.php');
@@ -34,7 +36,7 @@ class BackendController
     {
         $cookieValue = 'connexion';
         setcookie("session", $cookieValue, time()-1200);
-        header('Location: index.php');
+        header('Location: /');
     }
 
     public function newPost()
@@ -48,15 +50,17 @@ class BackendController
         }
     }
 
-    public function addPost($titlePost, $contentPost)
+    public function addPost($reqData)
     {
+        $titlePost = $reqData["titlePost"];
+        $contentPost = $reqData["contentPost"];
         if (isset($_COOKIE["session"])){
             $post = $this->postDAO->createPost($titlePost, $contentPost);
             if ($post === false){
                 throw new Exception('Impossible de créer l\'article !');
             }
             else{
-                header('Location: index.php');
+                header('Location: /');
             }
         }
         else{
@@ -75,10 +79,10 @@ class BackendController
         }
     }
 
-    public function postUpdate()
+    public function postUpdate($postId)
     {
         if (isset($_COOKIE["session"])){
-            $post = $this->postDAO->getPost($_GET['id']);
+            $post = $this->postDAO->getPost($postId);
             $posts = $this->postDAO->getPosts();
             require('view/updatePost.php');
         }
@@ -87,11 +91,14 @@ class BackendController
         }
     }
 
-    public function updateConfirmation($titlePost, $contentPost, $postId)
+    public function updateConfirmation($postId, $reqData)
     {
+        $titlePost = $reqData["titlePost"];
+        $contentPost = $reqData["contentPost"];
+
         if (isset($_COOKIE["session"])){
             $post = $this->postDAO->updatePost($titlePost, $contentPost, $postId);
-            header('Location: index.php?action=post&id=' . $postId);
+            header('Location: /posts/' . $postId);
         }
         else{
             require('view/connexion.php');
@@ -102,7 +109,7 @@ class BackendController
     {
         if (isset($_COOKIE["session"])){
             $post = $this->postDAO->deletePost($postId);
-            header('Location: index.php');
+            header('Location: /');
         }
         else{
             require('view/connexion.php');
@@ -125,7 +132,7 @@ class BackendController
     {
         if (isset($_COOKIE["session"])){
             $comment = $this->commentDAO->deleteComment($commentId);
-            header('Location: index.php?action=reportedCommentList');
+            header('Location: /comments/reported');
         }
         else{
             require('view/connexion.php');
@@ -136,7 +143,7 @@ class BackendController
     {
         if (isset($_COOKIE["session"])){
             $comment = $this->commentDAO->acceptComment($commentId);
-            header('location: index.php?action=reportedCommentList');
+            header('Location: /comments/reported');
         }
         else{
             require('view/connexion.php');

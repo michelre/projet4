@@ -19,29 +19,32 @@ class FrontendController
         require('view/accueil.php');
     }
 
-    public function post()
+    public function post($postId)
     {
-        $post = $this->postDAO->getPost($_GET['id']);
-        $comments = $this->commentDAO->getComments($_GET['id']);
+        var_dump($postId);
+        $post = $this->postDAO->getPost($postId);
+        $comments = $this->commentDAO->getComments($postId);
         $posts = $this->postDAO->getPosts();
         require('view/chapitre.php');
     }
 
-    public function addComment($postId, $author, $comment)
+    public function addComment($postId, $reqData)
     {
+        $author = $reqData['author'];
+        $comment = $reqData['comment'];
         $affectedLines = $this->commentDAO->postComment($postId, $author, $comment);
         if ($affectedLines === false) {
             throw new Exception('Impossible d\'ajouter le commentaire !');
         }
         else {
-            header('Location: index.php?action=post&id=' . $postId);
+            header('Location: /posts/' . $postId);
         }
     }
 
     public function reportedComment($commentId)
     {
         $comment = $this->commentDAO->statusComment($commentId);
-        header('location: index.php');
+        header('location: /');
     }
 
     public function connexionForm()
@@ -52,6 +55,6 @@ class FrontendController
         }
         else{
             require('view/connexion.php');
-        } 
+        }
     }
 }
