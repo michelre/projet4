@@ -8,12 +8,14 @@ class Router
     public function __construct()
     {
         $this->routes = getRoutes();
+        $this->baseURL = '\/projet4';
     }
 
     public function matchRoute()
     {
         $matchingRoutes = array_filter($this->routes, function ($route) {
-            $zippedRoutes = $this->zipRouteWithParameters($route["path"], $_SERVER["REQUEST_URI"]);
+            $currentURL = preg_replace('/' . $this->baseURL . '/', '', $_SERVER["REQUEST_URI"]);
+            $zippedRoutes = $this->zipRouteWithParameters($route["path"], $currentURL);
             return $this->compareZippedRoutes($zippedRoutes);
         });
         $matchingRoute = array_values($matchingRoutes)[0];
