@@ -8,21 +8,20 @@ class Router
     public function __construct()
     {
         $this->routes = getRoutes();
-        $this->baseURL = '\/projet4';
+        $this->baseURL = '/projet4';
     }
 
     public function matchRoute()
     {
         $matchingRoutes = array_filter($this->routes, function ($route) {
-            $currentURL = preg_replace('/' . $this->baseURL . '/', '', $_SERVER["REQUEST_URI"]);
-            $zippedRoutes = $this->zipRouteWithParameters($route["path"], $currentURL);
+            $zippedRoutes = $this->zipRouteWithParameters($this->baseURL . $route["path"], $_SERVER["REQUEST_URI"]);
             return $this->compareZippedRoutes($zippedRoutes);
         });
         $matchingRoute = array_values($matchingRoutes)[0];
         $method = $matchingRoute["method"] ?? 'GET';
         $methodData = $GLOBALS['_' . $method];
         $controller = new $matchingRoute["controller"];
-        $parameters = array_values($this->extractRouteParameters($matchingRoute["path"], $_SERVER["REQUEST_URI"]));
+        $parameters = array_values($this->extractRouteParameters($this->baseURL . $matchingRoute["path"], $_SERVER["REQUEST_URI"]));
         array_push($parameters, $methodData);
         $controller->{$matchingRoute["action"]}(...$parameters);
     }
@@ -63,6 +62,10 @@ class Router
     public function routeToArray($route)
     {
         return explode('/', $route);
+    }
+
+    public function getBaseURL(){
+        return $this->baseURL;
     }
 
 }

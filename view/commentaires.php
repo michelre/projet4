@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="public/images/favicon.ico" type="image/x-icon"/>
-  <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="/public/images/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon"/>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css'/>
-  <link rel="stylesheet" href="public/nav.css">
-  <link rel="stylesheet" href="public/margin.css">
+  <link rel="stylesheet" href="/public/nav.css">
+  <link rel="stylesheet" href="/public/margin.css">
   <title>gestion des commentaires</title>
 </head>
 <body>
@@ -25,13 +25,13 @@ foreach ($comment as $comment) {
     <h3> <?php echo htmlspecialchars($comment->getAuthor()); ?> </h3>
     <p> <?php echo htmlspecialchars($comment->getComment()); ?> </p>
     <p>publié le: <?php echo htmlspecialchars($comment->getDateComment()); ?></p>
-    <form action="/comments/<?php echo $comment->getId(); ?>/delete" method="post">
+    <form action="<?php echo $router->getBaseURL() ?>/comments/<?php echo $comment->getId(); ?>/delete" method="post">
       <div>
         <div class="d-inline">
           <input class="btn btn-primary" type="submit" value="supprimer"/>
         </div>
     </form>
-    <form action="/comments/<?php echo $comment->getId(); ?>/accept" method="post" class="d-inline">
+    <form action="<?php echo $router->getBaseURL() ?>/comments/<?php echo $comment->getId(); ?>/accept" method="post" class="d-inline">
       <input class="btn btn-primary" type="submit" value="accepter"/>
     </form>
   </div>

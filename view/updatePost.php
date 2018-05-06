@@ -26,7 +26,7 @@
 
 <div class="updatePost m-2 p-2 m-md-5 p-md-5 border border-dark rounded">
 
-  <form action="/posts/<?php echo $post->getId(); ?>/update/confirm" method="post">
+  <form action="<?php echo $router->getBaseURL() ?>/posts/<?php echo $post->getId(); ?>/update/confirm" method="post">
     <div>
       <label for="titlePost">Titre du chapitre</label><br/>
       <input type="text" id="titlePost" name="titlePost" value="<?php echo htmlspecialchars($post->getTitle()); ?>"/>
@@ -40,7 +40,7 @@
         <input class="btn btn-primary" type="submit" value="modifier"/>
       </div>
   </form>
-  <form action="/posts/<?php echo $post->getId(); ?>/delete" method="post" class="delete d-inline">
+  <form action="<?php echo $router->getBaseURL() ?>/posts/<?php echo $post->getId(); ?>/delete" method="post" class="delete d-inline">
     <input class="btn btn-primary" type="submit" value="supprimer"/>
   </form>
 </div>

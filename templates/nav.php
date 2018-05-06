@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/"><i class="fa fa-home" aria-hidden="true"></i>Accueil</a>
+        <a class="nav-link" href="<?php echo $router->getBaseURL() ?>/"><i class="fa fa-home" aria-hidden="true"></i>Accueil</a>
       </li>
 
       <li class="nav-item dropdown">
@@ -22,7 +22,7 @@
             foreach ($posts as $postNav) {
                 ?>
               <a class="dropdown-item"
-                 href="/posts/<?php echo $postNav->getId() ?>"><?php echo $postNav->getTitle() ?></a>
+                 href="<?php echo $router->getBaseURL() ?>/posts/<?php echo $postNav->getId() ?>"><?php echo $postNav->getTitle() ?></a>
                 <?php
             }
             ?>
@@ -30,7 +30,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="/connexion"><i class="fa fa-sign-in" aria-hidden="true"></i>
+        <a class="nav-link" href="<?php echo $router->getBaseURL() ?>/connexion"><i class="fa fa-sign-in" aria-hidden="true"></i>
             <?php if (isset($_COOKIE["session"])) {
                 echo 'Administration';
             } else {

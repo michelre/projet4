@@ -11,19 +11,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="public/images/favicon.ico" type="image/x-icon"/>
-  <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon"/>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css'/>
-  <link rel="stylesheet" href="public/nav.css">
-  <link rel="stylesheet" href="public/formConnexion.css">
-  <link rel="stylesheet" href="public/margin.css">
+  <link rel="stylesheet" href="/public/nav.css">
+  <link rel="stylesheet" href="/public/formConnexion.css">
+  <link rel="stylesheet" href="/public/margin.css">
   <title>Connexion</title>
 </head>
 <body>
 
 <?php include('templates/nav.php'); ?>
 
-<form action="/login" method="post" class="form-signin margin">
+<form action="<?php echo $router->getBaseURL() ?>/login" method="post" class="form-signin margin">
   <h4 class="h3 mb-3 font-weight-normal text-center">Connectez vous :</h4>
   <label for="inputText">Nom:</label>
   <input type="text" id="pseudo" name="pseudo" class="form-control" placeholder="votre nom" required>

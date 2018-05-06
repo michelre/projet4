@@ -21,7 +21,7 @@
     foreach ($posts as $post) {
         ?>
       <div class="posts">
-        <a href="/posts/<?php echo $post->getId(); ?>/update"><?php echo htmlspecialchars($post->getTitle()); ?></a>
+        <a href="<?php echo $router->getBaseURL() ?>/posts/<?php echo $post->getId(); ?>/update"><?php echo htmlspecialchars($post->getTitle()); ?></a>
       </div>
         <?php
     }

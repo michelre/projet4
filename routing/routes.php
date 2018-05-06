@@ -20,6 +20,12 @@ function getRoutes()
             "method" => "POST"
         ),
         array(
+            "path" => "/disconnect",
+            "controller" => "BackendController",
+            "action" => "disconnect",
+            "method" => "POST"
+        ),
+        array(
             "path" => "/comments/:commentId/report",
             "controller" => "FrontendController",
             "action" => "reportedComment"
@@ -64,7 +70,7 @@ function getRoutes()
             "method" => "POST"
         ),
         array(
-            "path" => "/posts/:id",
+            "path" => "/posts/:postId",
             "controller" => "FrontendController",
             "action" => "post"
         ),

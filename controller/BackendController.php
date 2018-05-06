@@ -14,6 +14,7 @@ class BackendController
         $this->postDAO = new PostDAO;
         $this->commentDAO = new CommentDAO;
         $this->userDAO = new UserDAO;
+        $this->router = new Router();
     }
 
     public function connexion($reqData)
@@ -22,12 +23,12 @@ class BackendController
         $password = $reqData["password"] ?? "";
         $user = $this->userDAO->connect($pseudo);
         $posts = $this->postDAO->getPosts();
-        if (password_verify($password, $user->getPassword())){
+        $router = $this->router;
+        if (password_verify($password, $user->getPassword())) {
             $cookieValue = 'connexion';
-            setcookie("session", $cookieValue, time()+1200);
-            header('Location: /connexion');
-        }
-        else{
+            setcookie("session", $cookieValue, time() + 1200);
+            header('Location: ' . $this->router->getBaseURL() . '/connexion');
+        } else {
             require('view/connexion.php');
         }
     }
@@ -35,17 +36,17 @@ class BackendController
     public function disconnect()
     {
         $cookieValue = 'connexion';
-        setcookie("session", $cookieValue, time()-1200);
-        header('Location: /');
+        setcookie("session", $cookieValue, time() - 1200);
+        header('Location: ' . $this->router->getBaseURL() . '/');
     }
 
     public function newPost()
     {
-        if (isset($_COOKIE["session"])){
+        $router = $this->router;
+        if (isset($_COOKIE["session"])) {
             $posts = $this->postDAO->getPosts();
             require('view/addPost.php');
-        }
-        else{
+        } else {
             require('view/connexion.php');
         }
     }
@@ -54,39 +55,39 @@ class BackendController
     {
         $titlePost = $reqData["titlePost"];
         $contentPost = $reqData["contentPost"];
-        if (isset($_COOKIE["session"])){
+        $router = $this->router;
+        if (isset($_COOKIE["session"])) {
             $post = $this->postDAO->createPost($titlePost, $contentPost);
-            if ($post === false){
+            if ($post === false) {
                 throw new Exception('Impossible de créer l\'article !');
+            } else {
+                header('Location: ' . $this->router->getBaseURL() . '/');
             }
-            else{
-                header('Location: /');
-            }
-        }
-        else{
+        } else {
             require('view/connexion.php');
         }
     }
 
     public function updateList()
     {
-        if (isset($_COOKIE["session"])){
+        $router = $this->router;
+        if (isset($_COOKIE["session"])) {
             $posts = $this->postDAO->getPosts();
             require('view/listPosts.php');
-        }
-        else{
+        } else {
             require('view/connexion.php');
         }
     }
 
     public function postUpdate($postId)
     {
-        if (isset($_COOKIE["session"])){
+        var_dump($postId);
+        $router = $this->router;
+        if (isset($_COOKIE["session"])) {
             $post = $this->postDAO->getPost($postId);
             $posts = $this->postDAO->getPosts();
             require('view/updatePost.php');
-        }
-        else{
+        } else {
             require('view/connexion.php');
         }
     }
@@ -95,57 +96,56 @@ class BackendController
     {
         $titlePost = $reqData["titlePost"];
         $contentPost = $reqData["contentPost"];
-
-        if (isset($_COOKIE["session"])){
+        $router = $this->router;
+        if (isset($_COOKIE["session"])) {
             $post = $this->postDAO->updatePost($titlePost, $contentPost, $postId);
-            header('Location: /posts/' . $postId);
-        }
-        else{
+            header('Location: ' . $this->router->getBaseURL() . '/posts/' . $postId);
+        } else {
             require('view/connexion.php');
         }
     }
 
     public function deletePost($postId)
     {
-        if (isset($_COOKIE["session"])){
+        $router = $this->router;
+        if (isset($_COOKIE["session"])) {
             $post = $this->postDAO->deletePost($postId);
-            header('Location: /');
-        }
-        else{
+            header('Location: ' . $this->router->getBaseURL() . '/');
+        } else {
             require('view/connexion.php');
         }
     }
 
     public function reportedList()
     {
-        if (isset($_COOKIE["session"])){
+        $router = $this->router;
+        if (isset($_COOKIE["session"])) {
             $comment = $this->commentDAO->commentList();
             $posts = $this->postDAO->getPosts();
             require('view/commentaires.php');
-        }
-        else{
+        } else {
             require('view/connexion.php');
         }
     }
 
     public function deleteComments($commentId)
     {
-        if (isset($_COOKIE["session"])){
+        $router = $this->router;
+        if (isset($_COOKIE["session"])) {
             $comment = $this->commentDAO->deleteComment($commentId);
-            header('Location: /comments/reported');
-        }
-        else{
+            header('Location: ' . $this->router->getBaseURL() . '/comments/reported');
+        } else {
             require('view/connexion.php');
         }
     }
 
     public function acceptComments($commentId)
     {
-        if (isset($_COOKIE["session"])){
+        $router = $this->router;
+        if (isset($_COOKIE["session"])) {
             $comment = $this->commentDAO->acceptComment($commentId);
-            header('Location: /comments/reported');
-        }
-        else{
+            header('Location: ' . $this->router->getBaseURL() . '/comments/reported');
+        } else {
             require('view/connexion.php');
         }
     }

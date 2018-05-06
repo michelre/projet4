@@ -11,20 +11,22 @@ class FrontendController
     {
         $this->postDAO = new PostDAO();
         $this->commentDAO = new CommentDAO();
+        $this->router = new Router();
     }
 
     public function listPosts()
     {
         $posts = $this->postDAO->getPosts();
+        $router = $this->router;
         require('view/accueil.php');
     }
 
     public function post($postId)
     {
-        var_dump($postId);
         $post = $this->postDAO->getPost($postId);
         $comments = $this->commentDAO->getComments($postId);
         $posts = $this->postDAO->getPosts();
+        $router = $this->router;
         require('view/chapitre.php');
     }
 
@@ -37,18 +39,19 @@ class FrontendController
             throw new Exception('Impossible d\'ajouter le commentaire !');
         }
         else {
-            header('Location: /posts/' . $postId);
+            header('Location:' . $this->router->getBaseURL() . '/posts/' . $postId);
         }
     }
 
     public function reportedComment($commentId)
     {
         $comment = $this->commentDAO->statusComment($commentId);
-        header('location: /');
+        header('location: ' . $this->router->getBaseURL() . '/');
     }
 
     public function connexionForm()
     {
+        $router = $this->router;
         $posts = $this->postDAO->getPosts();
         if (isset($_COOKIE["session"])){
             require('view/admin.php');
