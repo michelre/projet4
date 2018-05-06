@@ -6,10 +6,11 @@ class PostDAO extends BaseDAO
 {
     public function getPosts()
     {
+
         $db = $this->dbConnect();
         $req = $db->query('SELECT *, DATE_FORMAT(date_created, \'%d/%m/%y\') as created_date FROM posts');
         $posts = [];
-        while($post = $req->fetch()){
+        while ($post = $req->fetch()) {
             array_push($posts, new Post($post['id'], $post['title'], $post['content'], $post['created_date']));
         }
         return $posts;

@@ -4,11 +4,11 @@ require('routing/routes.php');
 class Router
 {
     private $routes = [];
+    private $baseURL = '/projet4';
 
     public function __construct()
     {
         $this->routes = getRoutes();
-        $this->baseURL = '/projet4';
     }
 
     public function matchRoute()
